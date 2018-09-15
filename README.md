@@ -31,6 +31,7 @@ Posts
 - passport
 - passport-jwt
 - validator
+- gravatar
 
 ## Running
 
@@ -61,7 +62,7 @@ implementing features, refactoring code, porting to a different language),
 otherwise you risk spending a lot of time working on something that the
 project's developers might not want to merge into the project.
 
-# The MIT License (MIT)
+## The MIT License (MIT)
 
 Copyright © 2018 Helfi Pangestu
 
