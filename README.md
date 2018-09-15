@@ -17,10 +17,9 @@ Posts
 
 ## Architecture
 
-Mongo DB
-Express JS
-React JS
-Node JS
+- Mongo DB - Express JS - React JS - Node JS
+- mlab
+- heroku
 
 ## Library Used
 
@@ -37,10 +36,52 @@ Node JS
 
 - Clone this repository
 - Setup mongoURI in ./config/keys.js
-- composer install
+- npm install
 - npm run server
 - Open your browser and type http://localhost:5000
 
 ## Preview
 
 check website : -
+
+## Contributing to this project
+
+Please take a moment to review this document in order to make the contribution process easy and effective for everyone involved.
+
+<a name="pull-requests"></a>
+
+### Pull requests
+
+Good pull requests - patches, improvements, new features - are a fantastic
+help. They should remain focused in scope and avoid containing unrelated
+commits.
+
+**Please ask first** before embarking on any significant pull request (e.g.
+implementing features, refactoring code, porting to a different language),
+otherwise you risk spending a lot of time working on something that the
+project's developers might not want to merge into the project.
+
+# The MIT License (MIT)
+
+Copyright © 2018 Helfi Pangestu
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the “Software”), to deal in the Software without
+restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following
+conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+OTHER DEALINGS IN THE SOFTWARE.
