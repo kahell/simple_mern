@@ -201,6 +201,79 @@ router.post(
   }
 );
 
+// @route   POST api/profile/experience/:id
+// @desc    Update experience to profiles
+// @access  Private
+router.post(
+  "/experience/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { errors, isValid } = validateExperienceInput(req.body);
+
+    //Check Validation
+    if (!isValid) {
+      // Return any errors with 400 status
+      return res.status(400).json(errors);
+    }
+
+    // Get field
+    const experience = {};
+    experience.title = req.body.title;
+    experience.company = req.body.company;
+    experience.from = req.body.from;
+    experience.to = req.body.to;
+    experience.description = req.body.description;
+
+    Profile.find({ user: req.user.id })
+      .then(profile => {
+        // Check Error
+        if (profile[0].experience.length <= 0) {
+          return res.status(401).json({ error: "Experience not found" });
+        }
+
+        // Get remove index
+        const updateIndex = profile[0].experience
+          .map(item => item.id)
+          .indexOf(req.params.id);
+
+        // Update of array
+        for (key in experience) {
+          if (!experience[key]) {
+            experience[key] = profile[0].experience[updateIndex][key];
+          }
+        }
+
+        // Update
+        Profile.updateOne(
+          { user: req.user.id, "experience._id": req.params.id },
+          {
+            $set: {
+              "experience.$.title": experience.title,
+              "experience.$.company": experience.company,
+              "experience.$.from": experience.from,
+              "experience.$.to": experience.to,
+              "experience.$.description": experience.description
+            }
+          },
+          { new: true }
+        )
+          .then(profile => {
+            if (!profile.ok) {
+              return res
+                .status(404)
+                .json({ error: true, message: "Update failed." });
+            }
+
+            Profile.find({ user: req.user.id })
+              .then(profile => res.json(profile))
+              .catch(err => res.status(404).json(err));
+          })
+          .catch(err => res.status(404).json(err));
+      })
+      .catch(err => res.status(404).json({ error: err }));
+  }
+);
+
 // @route   POST api/profile/education
 // @desc    Add education to profiles
 // @access  Private
