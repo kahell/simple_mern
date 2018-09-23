@@ -103,6 +103,8 @@ exports.create_or_update_profile = (req, res) => {
   if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
   if (req.body.linkedin) profileFields.social.linkedin = req.body.linkedin;
 
+  //upload.single("avatar");
+
   Profile.findOne({ user: req.user.id }).then(profile => {
     if (profile) {
       // Update
