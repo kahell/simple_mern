@@ -17,18 +17,18 @@ const InputGroup = ({
         <span className="input-group-text">
           <i className={icon} />
         </span>
+        <input
+          className={classnames("form-control form-control-lg", {
+            "is-invalid": error
+          })}
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
+        {error && <div className="invalid-feedback">{error} </div>}
       </div>
-      <input
-        className={classnames("form-control form-control-lg", {
-          "is-invalid": error
-        })}
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        value={value}
-        onChange={onChange}
-      />
-      {error && <div className="invalid-feedback">{error} </div>}
     </div>
   );
 };
