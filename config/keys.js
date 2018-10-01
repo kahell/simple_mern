@@ -1,4 +1,5 @@
-module.exports = {
-  mongoURI: "mongodb://helfi:helfi123@ds157762.mlab.com:57762/simple_mern",
-  secretOrKey: "kahell"
-};
+if (process.env.NODE_ENV === "production") {
+  module.exports = require("./keys_prod");
+} else {
+  module.exports = require("./keys_dev");
+}
